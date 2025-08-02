@@ -4,14 +4,12 @@ import streamlit as st
 from dotenv import dotenv_values
 
 
-# Streamlit page configuration
 st.set_page_config(
     page_title="The Tech Buddy 🧑‍💻",
     page_icon="🤖",
     layout="centered",
 )
 
-# Load secrets from .env or Streamlit secrets.toml
 env_secrets = dotenv_values(".env")
 
 GROQ_API_KEY = env_secrets.get("GROQ_API_KEY")
@@ -29,22 +27,18 @@ if not all([GROQ_API_KEY, INITIAL_RESPONSE, INITIAL_MSG, CHAT_CONTEXT]):
         st.error("Missing secrets! Please provide either a .env file or .streamlit/secrets.toml.")
         st.stop()
 
-# Initialize chat history
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [
         {"role": "assistant", "content": INITIAL_RESPONSE},
     ]
 
-# Page title and caption
 st.title("Welcome Buddy!")
 st.caption("Helping You Level Up Your Coding Game")
 
-# Display chat history
 for message in st.session_state.chat_history:
     with st.chat_message(message["role"], avatar="🤖" if message["role"] == "assistant" else "🗨️"):
         st.markdown(message["content"])
 
-# User input field
 user_prompt = st.chat_input("Ask me")
 
 if user_prompt:
@@ -58,7 +52,6 @@ if user_prompt:
         *st.session_state.chat_history,
     ]
 
-    # Call Groq API directly
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
