@@ -1,3 +1,4 @@
 streamlit==1.37.0
 python-dotenv
 requests
+pip-25.11
