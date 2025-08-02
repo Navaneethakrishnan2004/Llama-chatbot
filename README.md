@@ -235,23 +235,3 @@ To run locally:
 ```bash
 streamlit run main.py
 ```
-
-## 🌍 Deploy Your App for Free
-
-1. Push your code to a **GitHub** repository.
-
-2. Log in to and go to **My Apps**.
-
-3. Click **Create app**.
-
-4. Select your GitHub repo and the correct branch:
-
-5. Point to your `main.py` file:
-
-6. (Optional) Create a custom URL:
-
-7. Under **Additional Settings**, paste the contents of your `.env` file in **Secrets**:
-
-8. Click **Deploy**!
-
-🎉 **Congrats!** Your personalized AI chatbot is now live and available for anyone to use — all for free!
